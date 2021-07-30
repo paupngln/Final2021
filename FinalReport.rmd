@@ -13,7 +13,7 @@ output:
 require(tidyverse)
 require(tigerstats)
 require(forcats)
-TheData <-read.csv(file="fall21.csv",header=TRUE)
+TheData <-read.csv(file="FallFinalData.csv",header=TRUE)
 TheData <- TheData %>% mutate(across(where(is.character),as.factor))
 ```
 
