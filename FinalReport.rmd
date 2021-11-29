@@ -54,6 +54,8 @@ Malesmod <- fisher.test(table1)
 
 As per the chi sq test above, the p value is very tiny. This suggest that we need to reject the null hypothesis and that there is a difference between the males who took the drug in comparison to those who took the placebo. 
 
+## calculating effectiveness
+
 ```{r}
 MaleEstimate <-Malesmod$estimate
 Malelow <- Malesmod$conf.int[1]
@@ -73,6 +75,57 @@ options(digits = 1)
 The effectiveness of the Covid91 vaccines for the Males is `r MaleEffect`. The confidence interval is `r MalelowEffect` to `r MalehighEffect`
 
 # Females
+
+```{r}
+Females <- filter(Covid91, sex == "Woman")
+```
+
+## Barplot 
+```{r}
+barchartGC(~infected + infected ,data=Females)
+barchartGC(~infected + treatment,data=Females, type="percent")
+```
+
+As per the plot above, the vaccine is not effective for "Females". The Drug portion indicates that out of those who are sick had taken the vaccine. 
+
+## Numerical results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=Females)
+rowPerc(table1)
+colPerc(table1)
+```
+As per the table above, it shows that the females who got sick, 58% of them had gotten the vaccine, in comparison with 42% of the sick that took the placebo. Upon reviewing the information, we can clearly see that the vaccine does not seem to be effective for Females. 
+
+## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+Femalesmod <- fisher.test(table1)
+```
+
+Since our p-value is tiny, we have to reject the null hypothesis, stating that there is a difference between our data. It looks like the data is different in a negative way, the drug is not effective in comparison with the placebo. 
+
+## calculating effectiveness
+
+```{r}
+FemaleEstimate <-Femalesmod$estimate
+Femalelow <- Femalesmod$conf.int[1]
+Femalehigh <-Femalesmod$conf.int[2]
+
+FemalelowProb <- Femalelow / (1 + Femalelow)
+FemalelowEffect <- FemalelowProb * 100
+
+Femalehighprob <- Femalehigh / (1 + Femalehigh)
+FemalehighEffect <- Femalehighprob * 100
+
+Femaleprob <- FemaleEstimate / (1 + FemaleEstimate)
+FemaleEffect <-Femaleprob * 100
+options(digits = 1)
+```
+
+The effectiveness of the Covid91 vaccines for the Females is `r FemaleEffect`. The confidence interval is `r FemalelowEffect` to `r FemalehighEffect`
 
 # Drug Users
 
