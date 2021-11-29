@@ -23,6 +23,30 @@ A new  preventative vaccine (covid91) is under test in clinical trials. Given th
 
 # Males
 
+```{r}
+Males <- filter(Covid91, sex == "Man")
+```
+
+## Barplot 
+```{r}
+barchartGC(~treatment + infected ,data=Males)
+barchartGC(~treatment + infected,data=Males, type="percent")
+```
+
+As per the plot above, it shows us that those who took the placebo got more sick than the males who took the Covid91. We can surmise that the "sick" portion of the placebo group is almost double compared to the drug group. This shows that the drug is effective for the Males group. 
+
+## Numerical results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=Males)
+rowPerc(table1)
+colPerc(table1)
+```
+As per the table above, 33.11 of the sick males had the treatment, and 66.89 of those males who got sick had the placebo. There is a 2:1 difference. This lets us know that the treatment is indeed working. 
+
+## Inferential results 
+
+
 
 # Females
 
