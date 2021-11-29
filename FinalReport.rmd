@@ -45,8 +45,32 @@ colPerc(table1)
 As per the table above, 33.11 of the sick males had the treatment, and 66.89 of those males who got sick had the placebo. There is a 2:1 difference. This lets us know that the treatment is indeed working. 
 
 ## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+Malesmod <- fisher.test(table1)
+```
 
+As per the chi sq test above, the p value is very tiny. This suggest that we need to reject the null hypothesis and that there is a difference between the males who took the drug in comparison to those who took the placebo. 
 
+```{r}
+MaleEstimate <-Malesmod$estimate
+Malelow <- Malesmod$conf.int[1]
+Malehigh <-Malesmod$conf.int[2]
+
+MalelowProb <- Malelow / (1 + Malelow)
+MalelowEffect <- MalelowProb * 100
+
+Malehighprob <- Malehigh / (1 + Malehigh)
+MalehighEffect <- Malehighprob * 100
+
+Maleprob <- MaleEstimate / (1 + MaleEstimate)
+MaleEffect <-Maleprob * 100
+options(digits = 1)
+```
+
+The effectiveness of the Covid91 vaccines for the Males is `r MaleEffect`. The confidence interval is `r MalelowEffect` to `r MalehighEffect`
 
 # Females
 
