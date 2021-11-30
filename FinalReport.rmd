@@ -128,8 +128,102 @@ options(digits = 1)
 The effectiveness of the Covid91 vaccines for the Females is `r FemaleEffect`. The confidence interval is `r FemalelowEffect` to `r FemalehighEffect`
 
 # Drug Users
+```{r}
+DrugUser <- filter(Covid91, DrugUser == "yes")
+```
+
+## Barplot
+```{r}
+barchartGC(~infected + infected ,data= DrugUser)
+barchartGC(~infected + treatment,data= DrugUser, type="percent")
+```
+
+## Numerical results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=DrugUser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+DrugUsersmod <- fisher.test(table1)
+```
+
+## calculating effectiveness
+
+```{r}
+DrugUserEstimate <-DrugUsersmod$estimate
+DrugUserlow <- DrugUsersmod$conf.int[1]
+DrugUserhigh <-DrugUsersmod$conf.int[2]
+
+DrugUserlowProb <- DrugUserlow / (1 + DrugUserlow)
+DrugUserlowEffect <- DrugUserlowProb * 100
+
+DrugUserhighprob <- DrugUserhigh / (1 + DrugUserhigh)
+DrugUserhighEffect <- DrugUserhighprob * 100
+
+DrugUserprob <- DrugUserEstimate / (1 + DrugUserEstimate)
+DrugUserEffect <-DrugUserprob * 100
+options(digits = 1)
+```
+
+The effectiveness of the Covid91 vaccines for the Drug Users is `r DrugUserEffect`. The confidence interval is `r DrugUserlowEffect` to `r DrugUserhighEffect`
 
 # LGBTQ
 
+```{r}
+LGBTQ <- filter(Covid91, LGBTQ == "gay")
+```
+
+## Barplot 
+
+```{r}
+barchartGC(~infected + infected ,data= LGBTQ)
+barchartGC(~infected + treatment,data= LGBTQ, type="percent")
+```
+
+## Numerical results 
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table1)
+colPerc(table1)
+```
+
+## Inferential results 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+LGBTQsmod <- fisher.test(table1)
+```
+
+## calculating effectiveness
+
+```{r}
+LGBTQEstimate <-LGBTQsmod$estimate
+LGBTQlow <- LGBTQsmod$conf.int[1]
+LGBTQhigh <-LGBTQsmod$conf.int[2]
+
+LGBTQlowProb <- LGBTQlow / (1 + LGBTQlow)
+LGBTQlowEffect <- LGBTQlowProb * 100
+
+LGBTQhighprob <- LGBTQhigh / (1 + LGBTQhigh)
+LGBTQhighEffect <- LGBTQhighprob * 100
+
+LGBTQprob <- LGBTQEstimate / (1 + LGBTQEstimate)
+LGBTQEffect <-LGBTQprob * 100
+options(digits = 1)
+```
+
+The effectiveness of the Covid91 vaccines for the LGBTQ is `r LGBTQEffect`. The confidence interval is `r LGBTQlowEffect` to `r LGBTQhighEffect`
+
 # Conclusions and recommendations
+In conclusion, 
+
 
