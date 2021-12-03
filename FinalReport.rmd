@@ -57,7 +57,7 @@ As per the chi sq test above, the p value is very tiny. This suggest that we nee
 ## calculating effectiveness
 
 ```{r}
-MaleEstimate <-Malesmod$estimate
+MaleEstimate <- (Malesmod$estimate + 1)*100
 Malelow <- Malesmod$conf.int[1]
 Malehigh <-Malesmod$conf.int[2]
 
@@ -110,7 +110,7 @@ Since our p-value is tiny, we have to reject the null hypothesis, stating that t
 ## calculating effectiveness
 
 ```{r}
-FemaleEstimate <-Femalesmod$estimate
+FemaleEstimate <-(Femalesmod$estimate+1) * 100
 Femalelow <- Femalesmod$conf.int[1]
 Femalehigh <-Femalesmod$conf.int[2]
 
@@ -138,6 +138,8 @@ barchartGC(~infected + infected ,data= DrugUser)
 barchartGC(~infected + treatment,data= DrugUser, type="percent")
 ```
 
+As per the barplot above, it shows that the drug is effective on the Drug users.Out of those who took the drug, the placebo group who took had way more infection reaching more than 60% while those who took the drug only made it to about 38%. 
+
 ## Numerical results 
 
 ```{r}
@@ -145,6 +147,8 @@ table1 <- xtabs(~infected + treatment, data=DrugUser)
 rowPerc(table1)
 colPerc(table1)
 ```
+
+As per the chart above, we can get a more accurate result. It shows that 33% of those who took the drug got infected while 67% of those who took the placebo get infected. 
 
 ## Inferential results 
 ```{r}
@@ -154,10 +158,12 @@ fisher.test(table1)
 DrugUsersmod <- fisher.test(table1)
 ```
 
+As per the chi sq test, the p value is (6e-04) we are going to have to reject the null hypothesis. There is a difference between the drug users who took the drug and infected, and those who took the placebo. A positive kind of difference but a difference non the less. 
+
 ## calculating effectiveness
 
 ```{r}
-DrugUserEstimate <-DrugUsersmod$estimate
+DrugUserEstimate <-(DrugUsersmod$estimate +1)*100
 DrugUserlow <- DrugUsersmod$conf.int[1]
 DrugUserhigh <-DrugUsersmod$conf.int[2]
 
@@ -187,6 +193,8 @@ barchartGC(~infected + infected ,data= LGBTQ)
 barchartGC(~infected + treatment,data= LGBTQ, type="percent")
 ```
 
+As per the Bar plot above, the LGBTQ group does not gain anything from taking the drug. In the sick portion of the graph, more than 50% got infected even when they took the drug in comparison with the placebo group. 
+
 ## Numerical results 
 
 ```{r}
@@ -194,6 +202,8 @@ table1 <- xtabs(~infected + treatment, data=LGBTQ)
 rowPerc(table1)
 colPerc(table1)
 ```
+
+This chart demonstrates to us that the LGBTQ should avoid taking this drug since, 71 % of those who got sick took the drug in comparison with the 29% of the sick people who handt.  
 
 ## Inferential results 
 ```{r}
@@ -203,10 +213,12 @@ fisher.test(table1)
 LGBTQsmod <- fisher.test(table1)
 ```
 
+As per the chi sq test, the p-value is tiny. This shows that we have to reject the null hypothesis. Also it shows that there is a significant contrast between the LGBQT who took the drug. In this particular case the difference is negative, there were more people who got sick while they took the drug.
+
 ## calculating effectiveness
 
 ```{r}
-LGBTQEstimate <-LGBTQsmod$estimate
+LGBTQEstimate <-(LGBTQsmod$estimate+1)*100
 LGBTQlow <- LGBTQsmod$conf.int[1]
 LGBTQhigh <-LGBTQsmod$conf.int[2]
 
@@ -224,6 +236,39 @@ options(digits = 1)
 The effectiveness of the Covid91 vaccines for the LGBTQ is `r LGBTQEffect`. The confidence interval is `r LGBTQlowEffect` to `r LGBTQhighEffect`
 
 # Conclusions and recommendations
-In conclusion, 
+In conclusion, we had to go do a statistical report on each of the group that 
+consist of, Males, Females, Drug users and LGBTQ group. 
 
+As for the Males we found out that the drug was effective for Males group. 
+It yields the result of 33% of those who took the drug got sick in comparison with 
+the 66.89% of those who had the placebo got sick. the p-value is tiny so we had to 
+reject the null hypothesis. While the effectiveness of the Covid91 vaccines for the
+Males is `r MaleEffect`. The confidence interval is `r MalelowEffect` to `r 
+MalehighEffect`
 
+For the Females group we found out that the drug was ineffective. The numerical 
+results showed us that 58% of the women got sick took the drug, in comparison with 
+42% of the sick that took the placebo. The p-value is small.We have to reject the 
+null hypothesis, stating that there is a difference between our data. It looks like
+the data is different in a negative way, the drug is not effective in comparison 
+with the placebo. While the effectiveness of the Covid91 vaccines for the Females 
+is `r FemaleEffect`. The confidence interval is `r FemalelowEffect` to `r 
+FemalehighEffect`
+
+For the drug user group we found out that the drug was pretty effective. The 
+numerical results show is that only 33% of those who took the drug got infected in 
+comparison to the 67% who those who took the placebo got infected. The p-value is 
+0.003 so we have to reject it.  There is a difference between the drug users who 
+took the drug and infected, and those who took the placebo. While the effectiveness
+of the Covid91 vaccines for the Drug Users is `r DrugUserEffect`. 
+The confidence interval is `r DrugUserlowEffect` to `r DrugUserhighEffect
+
+For the LGBTQ group we found out that the drug was ineffective for them. the 
+numerical results show 71 % of those who got sick took the drug in comparison with 
+the 29% of the sick people who taken the placebo. The p-value is pretty small so we
+have to reject the null hypothesis. his shows that we have to reject the null 
+hypothesis. Also it shows that there is a significant contrast between the LGBQT 
+who took the drug. In this particular case the difference is negative, there were 
+more people who got sick while they took the drug. While the effectiveness of the 
+Covid91 vaccines for the LGBTQ is `r LGBTQEffect`. The confidence interval is `r 
+LGBTQlowEffect` to `r LGBTQhighEffect`
