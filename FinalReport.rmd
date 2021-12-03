@@ -239,36 +239,45 @@ The effectiveness of the Covid91 vaccines for the LGBTQ is `r LGBTQEffect`. The 
 In conclusion, we had to go do a statistical report on each of the group that 
 consist of, Males, Females, Drug users and LGBTQ group. 
 
-As for the Males we found out that the drug was effective for Males group. 
+MALES: we found out that the drug was effective for Males group. 
 It yields the result of 33% of those who took the drug got sick in comparison with 
 the 66.89% of those who had the placebo got sick. the p-value is tiny so we had to 
-reject the null hypothesis. While the effectiveness of the Covid91 vaccines for the
+reject the null hypothesis.
+hile the effectiveness of the Covid91 vaccines for the
 Males is `r MaleEffect`. The confidence interval is `r MalelowEffect` to `r 
 MalehighEffect`
 
-For the Females group we found out that the drug was ineffective. The numerical 
+FEMALES: For the Females group we found out that the drug was ineffective.
+The numerical 
 results showed us that 58% of the women got sick took the drug, in comparison with 
-42% of the sick that took the placebo. The p-value is small.We have to reject the 
-null hypothesis, stating that there is a difference between our data. It looks like
+42% of the sick that took the placebo.
+The p-value is small.We have to reject the 
+null hypothesis, stating that there is a difference between our data.
+It looks like
 the data is different in a negative way, the drug is not effective in comparison 
-with the placebo. While the effectiveness of the Covid91 vaccines for the Females 
-is `r FemaleEffect`. The confidence interval is `r FemalelowEffect` to `r 
+with the placebo.
+The confidence interval is `r FemalelowEffect` to `r 
 FemalehighEffect`
 
-For the drug user group we found out that the drug was pretty effective. The 
-numerical results show is that only 33% of those who took the drug got infected in 
-comparison to the 67% who those who took the placebo got infected. The p-value is 
-0.003 so we have to reject it.  There is a difference between the drug users who 
+DRUG USERS: For the drug user group we found out that the drug was pretty effective. 
+The numerical results show is that only 33% of those who took the drug got infected in 
+comparison to the 67% who those who took the placebo got infected. 
+The p-value is 0.003 so we have to reject it.There is a difference between the drug users who 
 took the drug and infected, and those who took the placebo. While the effectiveness
 of the Covid91 vaccines for the Drug Users is `r DrugUserEffect`. 
 The confidence interval is `r DrugUserlowEffect` to `r DrugUserhighEffect
 
-For the LGBTQ group we found out that the drug was ineffective for them. the 
+LGBTQ: For the LGBTQ group we found out that the drug was ineffective for them.
+The 
 numerical results show 71 % of those who got sick took the drug in comparison with 
-the 29% of the sick people who taken the placebo. The p-value is pretty small so we
-have to reject the null hypothesis. his shows that we have to reject the null 
-hypothesis. Also it shows that there is a significant contrast between the LGBQT 
-who took the drug. In this particular case the difference is negative, there were 
-more people who got sick while they took the drug. While the effectiveness of the 
-Covid91 vaccines for the LGBTQ is `r LGBTQEffect`. The confidence interval is `r 
-LGBTQlowEffect` to `r LGBTQhighEffect`
+the 29% of the sick people who taken the placebo.
+he p-value is pretty small so we have to reject the null hypothesis. 
+Also it shows that there is a significant contrast between the LGBQT 
+who took the drug.  
+In this particular case the difference is negative, there were 
+more people who got sick while they took the drug.
+While the effectiveness of the Covid91 vaccines for the LGBTQ is 99.3
+The confidence interval is 20.5  to 38 
+
+
+
